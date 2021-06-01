@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title%} Welcome {% endblock %}
+
+{%block content%}
+<h1>Django Getting started application</h1>
+<p>This is django application</p>
+<a href="{% url 'rooms'%}">Show Rooms</a>
+<h1>Meetings</h1>
+<ul>
+    {% for meeting in meetings%}
+    <li>
+        <a href="{% url 'detail' meeting.id %}">
+            {{meeting.title}}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
